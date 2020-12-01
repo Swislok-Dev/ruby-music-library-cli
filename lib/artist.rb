@@ -12,6 +12,9 @@ class Artist
         Song.all.collect { |song| song if song.artist == self }
     end
 
+    def add_song(song)
+        @songs << song
+        song.artist = self
     def self.all
         @@all
     end
