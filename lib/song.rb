@@ -1,4 +1,4 @@
-
+require 'pry'
 
 class Song
     attr_accessor :name
@@ -31,17 +31,21 @@ class Song
     end
 
     def save
-        @@all << self
+        self.class.all << self
     end
 
     def self.create(name)
         song = Song.new(name)
         song.save
-        self
+        song
     end
 
     def self.find_by_name(name)
-        @@all.find { |name| self if song.name == name}
+        all.find { |find| find if find.name == name } 
+    end
+
+    def self.find_or_create_by_name(name)
+        find_by_name(name) || create(name)
     end
 
 end
