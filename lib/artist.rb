@@ -1,11 +1,16 @@
 
 class Artist
-    attr_accessor :name, :song, :genre
+    attr_accessor :name
+    attr_reader :genre, :songs
     @@all = []
 
     def initialize(name)
         @name = name
         @songs = []
+    end
+
+    def genres
+        songs.collect(&:genre).uniq
     end
 
     def songs
