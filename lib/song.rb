@@ -1,17 +1,27 @@
-
+require_relative './artist.rb'
 
 class Song
-    attr_accessor :name, :artist, :genre
+    attr_accessor :name, :genre
     @@all = []
 
-    def initialize(name, artist = nil)
+    def initialize(name, artist = nil, genre = nil)
         @name = name
-        
-        @artist = artist
+        self.artist=(artist)
+        self.genre=(genre)
     end
- 
+
     def artist=(artist)
         @artist = artist
+    end
+
+    def artist
+        @artist
+    end
+
+    def genre=(genre)
+        @genre = genre
+        # Genre.all.songs << self
+        genre.artist.song = self
     end
 
     def self.all
