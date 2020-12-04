@@ -21,4 +21,8 @@ class MusicLibraryController
     input = gets until input == "exit"
   end
 
+  def list_songs
+    binding.pry
+  end
+
 end
